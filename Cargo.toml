@@ -2,5 +2,7 @@
 name = "sdn"
 version = "0.1.0"
 edition = "2024"
+authors = ["Ante Perišić <perisic.ante@gmail.com>"]
 
 [dependencies]
+actix-web = "4.9.0"
