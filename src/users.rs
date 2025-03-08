@@ -19,3 +19,19 @@ pub async fn create_user(
 
     Ok(result)
 }
+
+pub async fn get_users_by_email(
+    pool: &PgPool,
+    email: &str,
+) -> Result<Vec<User>, sqlx::Error> {
+    let users = sqlx::query_as!(
+        User,
+        "SELECT * FROM users WHERE email = $1",
+        email
+    )
+    .fetch_all(pool)
+    .await?;
+
+    Ok(users)
+}
+
